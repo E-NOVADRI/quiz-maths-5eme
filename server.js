@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 // ── Middleware ────────────────────────────────────────────
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '.')));
 
 // ── Helpers ───────────────────────────────────────────────
 function pub(u) {
@@ -458,7 +458,7 @@ app.get('/api/config', (req, res) => {
 
 // ── SPA fallback ──────────────────────────────────────────
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // ── Start ─────────────────────────────────────────────────
